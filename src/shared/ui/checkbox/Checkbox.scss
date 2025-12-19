@@ -1,0 +1,52 @@
+.ui-checkbox {
+  --chk-bg: var(--bg-primary);
+  --chk-border: var(--border-default);
+  --chk-checked-bg: var(--accent-primary);
+  --chk-checked-text: var(--text-inverted, #fff);
+  --chk-focus: var(--accent-primary);
+
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--chk-border);
+  background-color: var(--chk-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--chk-focus);
+  }
+
+  &[data-state='checked'] {
+    background-color: var(--chk-checked-bg);
+    border-color: var(--chk-checked-bg);
+    color: var(--chk-checked-text);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

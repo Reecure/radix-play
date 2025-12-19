@@ -1,0 +1,54 @@
+.ui-input,
+.ui-textarea {
+  --input-bg: var(--bg-primary);
+  --input-border: var(--border-default);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-secondary);
+  --input-focus-ring: var(--accent-primary);
+  --input-error: var(--color-danger);
+
+  display: flex;
+  width: 100%;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+
+  &::placeholder {
+    color: var(--input-placeholder);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    border-color: var(--input-focus-ring);
+    box-shadow: 0 0 0 1px var(--input-focus-ring);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &[data-invalid="true"] {
+    border-color: var(--input-error);
+
+    &:focus-visible {
+      box-shadow: 0 0 0 1px var(--input-error);
+    }
+  }
+}
+
+.ui-input {
+  height: 40px;
+  padding: 0 12px;
+}
+
+.ui-textarea {
+  min-height: 80px;
+  padding: 12px;
+  resize: vertical;
+}

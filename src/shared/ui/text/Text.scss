@@ -1,0 +1,17 @@
+.ui-text {
+  margin: 0;
+
+  &--sm { font-size: 12px; line-height: 1.5; }
+  &--md { font-size: 14px; line-height: 1.5; }
+  &--lg { font-size: 16px; line-height: 1.5; }
+  &--h1 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  &--h2 { font-size: 20px; font-weight: 600; line-height: 1.3; }
+
+  &--regular { font-weight: 400; }
+  &--medium { font-weight: 500; }
+  &--bold { font-weight: 700; }
+
+  &--primary { color: var(--text-primary); }
+  &--secondary { color: var(--text-secondary); }
+  &--danger { color: var(--color-danger); }
+}

@@ -1,0 +1,79 @@
+.ui-calendar {
+  --rdp-cell-size: 40px;
+  --rdp-caption-font-size: 18px;
+  --rdp-accent-color: var(--accent-primary);
+  --rdp-background-color: var(--accent-primary-hover, #e6efff);
+
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  display: inline-block;
+
+  // Стилизация кнопок навигации
+  .rdp-button_reset {
+    border-radius: 6px;
+    transition: background 0.2s;
+
+    &:hover {
+      background-color: var(--bg-hover, #f1f5f9);
+    }
+  }
+
+  // Заголовок (Месяц Год)
+  .rdp-caption_label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  // Дни недели
+  .rdp-head_cell {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    width: var(--rdp-cell-size);
+    height: var(--rdp-cell-size);
+  }
+
+  // Ячейки дней
+  .rdp-day {
+    width: var(--rdp-cell-size);
+    height: var(--rdp-cell-size);
+    font-size: 14px;
+    border-radius: 6px;
+    color: var(--text-primary);
+
+    &_today {
+      font-weight: bold;
+      color: var(--accent-primary);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--accent-primary);
+      }
+    }
+
+    &_selected:not([disabled]) {
+      background-color: var(--rdp-accent-color);
+      color: var(--text-inverted, white);
+
+      &:hover {
+        background-color: var(--rdp-accent-color);
+        opacity: 0.9;
+      }
+
+      &.rdp-day_today::after {
+        background-color: white;
+      }
+    }
+  }
+}

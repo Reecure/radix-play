@@ -1,0 +1,9 @@
+@use './reset';
+@use './tokens';
+@use './themes';
+@use './fonts';
+
+body {
+  font-family: 'Comic Neue', cursive, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

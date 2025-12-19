@@ -1,0 +1,46 @@
+.ui-switch {
+  --switch-width: 42px;
+  --switch-height: 25px;
+  --switch-thumb-size: 21px;
+  --switch-bg-off: var(--border-default); // Серый когда выключен
+  --switch-bg-on: var(--accent-primary);  // Цвет бренда когда включен
+
+  all: unset;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background-color: var(--switch-bg-off);
+  border-radius: 9999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--switch-bg-on);
+  }
+
+  &[data-state='checked'] {
+    background-color: var(--switch-bg-on);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__thumb {
+    display: block;
+    width: var(--switch-thumb-size);
+    height: var(--switch-thumb-size);
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); // spring effect
+    transform: translateX(2px);
+    will-change: transform;
+
+    &[data-state='checked'] {
+      transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - 2px));
+    }
+  }
+}

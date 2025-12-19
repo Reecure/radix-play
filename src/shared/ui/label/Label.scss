@@ -1,0 +1,24 @@
+.ui-label {
+  --label-color: var(--text-primary);
+  --label-required: var(--color-danger);
+
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--label-color);
+  cursor: pointer;
+  user-select: none;
+
+  &[data-required="true"]::after {
+    content: '*';
+    margin-left: 4px;
+    color: var(--label-required);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
