@@ -1,11 +1,30 @@
 [data-theme='dark'] {
-  --bg-primary: #020617;
-  --bg-secondary: #0f172a;
+  --bg-root:
+          radial-gradient(
+                          1000px 800px at 80% 10%,
+                          rgba(245, 158, 11, 0.15),
+                          transparent 50%
+          ),
+          radial-gradient(
+                          1200px 1000px at 10% 90%,
+                          rgba(234, 88, 12, 0.12),
+                          transparent 55%
+          ),
+          linear-gradient(
+                          180deg,
+                          #0f172a 0%,
+                          #020617 100%
+          );
+
+  --bg-primary: rgba(2, 6, 23, 0.65);
+  --bg-secondary: rgba(15, 23, 42, 0.6);
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
 
-  --border-default: #1e293b;
+  --border-default: rgba(148, 163, 184, 0.18);
+  --glass-bg: rgba(15, 23, 42, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
 
   --accent-primary: var(--color-brand-500);
   --accent-hover: var(--color-brand-600);

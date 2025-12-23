@@ -1,11 +1,19 @@
 [data-theme='light'] {
-  --bg-primary: var(--color-white);
-  --bg-secondary: #f8fafc;
+  --bg-root:
+          linear-gradient(
+                          180deg,
+                          #ffffff 0%,
+                          #f8fafc 100%
+          );
+  --bg-primary: rgba(255, 255, 255, 0.7);
+  --bg-secondary: rgba(248, 250, 252, 0.75);
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
 
-  --border-default: #e2e8f0;
+  --border-default: rgba(15, 23, 42, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(15, 23, 42, 0.12);
 
   --accent-primary: var(--color-brand-600);
   --accent-hover: var(--color-brand-700);

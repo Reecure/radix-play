@@ -1,0 +1,19 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 116 31" width="116" height="31" fill="none">
+  <rect></rect>
+  <g opacity="100%">
+    <text x="34" y="24.5" font-family="Lexend Deca" font-size="24" fill="#030303" letter-spacing="0" font-weight="700" font-style="normal">Traffic</text>
+  </g>
+  <g opacity="100%">
+    <rect x="0" y="0" width="11" height="31" fill="#94a3b8" rx="5.5"></rect>
+  </g>
+  <g opacity="100%">
+    <rect x="15" y="0" width="11" height="11" fill="#94a3b8" rx="5.5"></rect>
+  </g>
+  <g opacity="100%">
+    <rect x="15" y="14" width="11" height="17" fill="#94a3b8" rx="5.5"></rect>
+  </g>
+  <defs>
+    <style id="brand"></style>
+  </defs>
+</svg>
