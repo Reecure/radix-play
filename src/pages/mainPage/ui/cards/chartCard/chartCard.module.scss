@@ -1,0 +1,17 @@
+.chartContainer {
+  width: 100%;
+  height: 250px;
+  margin-top: 8px;
+}
+
+.customTooltip {
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .tooltipValue {
+    color: var(--text-primary);
+  }
+}

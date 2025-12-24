@@ -1,0 +1,85 @@
+.settingsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border-top: 1px solid var(--glass-border);
+  background: transparent;
+}
+
+.brandSwitcher {
+  position: relative;
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 4px;
+  isolation: isolate;
+}
+
+.brandBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  svg { width: 16px; height: 16px; }
+}
+
+.glider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: var(--accent-primary);
+  border-radius: 8px;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+
+    .iconWrapper {
+      transform: rotate(15deg);
+      color: var(--accent-primary);
+    }
+  }
+
+  .iconWrapper {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  span {
+    font-size: 14px;
+  }
+}

@@ -19,10 +19,27 @@
 
   .severityCard {
     height: 370px;
+    max-width: 520px;
     width: 100%;
+    min-width: 0;
+  }
+
+  .topRegionsCard {
+    height: 100%;
+    max-width: 420px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .incidentsCompletionCard {
+    height: 100%;
+    max-width: 520px;
+    width: 100%;
+    min-width: 0;
   }
 
   .card {
+    min-width: 0;
     height: 100%;
     width: 100%;
   }
