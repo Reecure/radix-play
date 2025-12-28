@@ -40,8 +40,7 @@ export const getMapStyle = (theme) => {
         "sources": {
             'openmaptiles': {
                 type: 'vector',
-                // Твой локальный источник тайлов
-                tiles: ["https://localhost:7281/tiles/{z}/{x}/{y}.pbf"],
+                tiles: ["http://localhost:5043/tiles/{z}/{x}/{y}.pbf"],
                 minzoom: 0,
                 maxzoom: 14
             },
@@ -171,7 +170,7 @@ export const getMapStyle = (theme) => {
                 "filter": ["==", "class", "city"],
                 "layout": {
                     "text-field": "{name:latin}",
-                    "text-font": ["Noto Sans Regular"], // Убедись, что шрифт доступен
+                    "text-font": ["Noto Sans Regular"],
                     "text-size": 14
                 },
                 "paint": {

@@ -1,0 +1,32 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.actionBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-primary);
+  }
+}
+
+.actionsCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}

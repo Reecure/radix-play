@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 32 32">
+    <g id="dots">
+        <circle class="cls-1" cx="16" cy="16" r="3" fill="currentColor"/>
+
+        <circle class="cls-1" cx="16" cy="8" r="3" fill="currentColor"/>
+
+        <circle class="cls-1" cx="16" cy="24" r="3" fill="currentColor"/>
+
+        <path class="cls-2" d="M16,13v6a3,3,0,0,0,0-6Z" fill="currentColor"/>
+
+        <path class="cls-2" d="M16,5v6a3,3,0,0,0,0-6Z" fill="currentColor"/>
+
+        <path class="cls-2" d="M16,21v6a3,3,0,0,0,0-6Z" fill="currentColor"/>
+    </g>
+</svg>

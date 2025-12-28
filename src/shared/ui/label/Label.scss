@@ -2,7 +2,9 @@
   --label-color: var(--text-primary);
   --label-required: var(--color-danger);
 
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1;

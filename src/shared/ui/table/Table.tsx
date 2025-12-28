@@ -27,7 +27,7 @@ TableBody.displayName = 'TableBody'
 
 const TableRow = forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(
     ({ className, ...props }, ref) => (
-        <tr ref={ref} className={clsx('ui-table__row', className)} {...props} />
+        <tr ref={ref} className={clsx('ui-table__row glass', className)} {...props} />
     )
 )
 TableRow.displayName = 'TableRow'
