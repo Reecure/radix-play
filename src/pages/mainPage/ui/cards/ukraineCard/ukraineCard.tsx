@@ -1,4 +1,4 @@
-import {KYIV_MAP_CONFIG, UKRAINE_MAP_CONFIG} from "../../../../../shared/config/ukraineMap/ukraineMap.ts";
+import {KYIV_MAP_CONFIG, UKRAINE_MAP_CONFIG} from "../../../../../shared/config/map/ukraineMap.ts";
 
 const UkraineCard = ({hoverColor = "#3b82f6", baseColor = "#e2e8f0"}) => {
     return (

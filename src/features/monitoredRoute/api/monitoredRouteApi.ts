@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../../shared/config/env";
+import { API_URL } from "../../../shared/config/environment/env.ts";
 import type { CreateMonitoredRoute, MonitoredRoute } from "../model/types";
 
 export const routeApi = {

@@ -37,12 +37,11 @@ export const getMapStyle = (theme) => {
     return {
         "version": 8,
         "name": `Glass ${theme} UI`,
-        "sources": {
-            'openmaptiles': {
-                type: 'vector',
-                tiles: ["http://localhost:5043/tiles/{z}/{x}/{y}.pbf"],
-                minzoom: 0,
-                maxzoom: 14
+        sources: {
+            openmaptiles: {
+                type: 'vector' as const,
+                url: 'https://api.maptiler.com/tiles/v3/tiles.json?key=OOcVSRSNSwN3LqL0R07X',
+                // tiles: ['https://tiles.openfreemap.org/planet/{z}/{x}/{y}.pbf'],
             },
         },
         "layers": [

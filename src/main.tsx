@@ -5,7 +5,8 @@ import App from './app/App.tsx'
 import {BrowserRouter} from "react-router";
 import {ErrorBoundary} from "./app/providers/ErrorBoundary";
 import {ThemeProvider} from "./app/providers/ThemeProvider.tsx";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import {MapProvider} from "./app/providers/MapProvider/MapProvider.tsx";
 
 const queryClient = new QueryClient({
     defaultOptions: {

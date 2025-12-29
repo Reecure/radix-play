@@ -1,5 +1,5 @@
 import Sidebar from "../widgets/sidebar/sidebar.tsx";
-import {sidebarMenu} from "../shared/config/sidebarMenu.ts";
+import {sidebarMenu} from "../shared/config/routerConfig/sidebarMenu.ts";
 import {Suspense} from "react";
 import "./App.scss";
 import {AppRouter} from "./providers/router";
