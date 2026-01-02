@@ -22,22 +22,37 @@ export const Button = ({
                            children,
                            ...props
                        }: Props) => {
-    const Component = asChild ? Slot : 'button'
+    const isDisabled = disabled || loading
+
+    const classes = clsx(
+        'ui-button',
+        `ui-button--${variant}`,
+        `ui-button--${intent}`,
+        `ui-button--${size}`,
+        loading && 'is-loading',
+        className
+    )
+
+    if (asChild) {
+        return (
+            <Slot
+                className={classes}
+                aria-disabled={isDisabled || undefined}
+                data-disabled={isDisabled || undefined}
+                {...props}
+            >
+                {children}
+            </Slot>
+        )
+    }
 
     return (
-        <Component
-            className={clsx(
-                'ui-button',
-                `ui-button--${variant}`,
-                `ui-button--${intent}`,
-                `ui-button--${size}`,
-                loading && 'is-loading',
-                className
-            )}
-            disabled={disabled || loading}
+        <button
+            className={classes}
+            disabled={isDisabled}
             {...props}
         >
             <span className="ui-button__content">{children}</span>
-        </Component>
+        </button>
     )
 }

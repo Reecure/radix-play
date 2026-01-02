@@ -34,6 +34,12 @@
     z-index: 1;
   }
 
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
   &:disabled,
   &[disabled],
   &[aria-disabled="true"] {
