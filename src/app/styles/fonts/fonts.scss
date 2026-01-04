@@ -1,35 +1,162 @@
+@use '../tokens/primitives' as p;
+
+// ============================================
+// FONT FAMILIES
+// ============================================
+$font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-display: 'Comic Neue', cursive;
+$font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+:root {
+  --font-sans: #{$font-sans};
+  --font-display: #{$font-display};
+  --font-mono: #{$font-mono};
+}
+
 .comic-neue-light {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 300;
   font-style: normal;
 }
 
 .comic-neue-regular {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 400;
   font-style: normal;
 }
 
 .comic-neue-bold {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 700;
   font-style: normal;
 }
 
 .comic-neue-light-italic {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 300;
   font-style: italic;
 }
 
 .comic-neue-regular-italic {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 400;
   font-style: italic;
 }
 
 .comic-neue-bold-italic {
-  font-family: "Comic Neue", cursive;
+  font-family: var(--font-display);
   font-weight: 700;
   font-style: italic;
+}
+
+// Headings
+@mixin heading-display {
+  font-family: $font-sans;
+  font-size: p.$heading-3xl;
+  font-weight: p.$weight-bold;
+  line-height: p.$leading-tight;
+  letter-spacing: p.$tracking-tight;
+}
+
+@mixin heading-1 {
+  font-family: $font-sans;
+  font-size: p.$heading-2xl;
+  font-weight: p.$weight-bold;
+  line-height: p.$leading-tight;
+  letter-spacing: p.$tracking-tight;
+}
+
+@mixin heading-2 {
+  font-family: $font-sans;
+  font-size: p.$heading-xl;
+  font-weight: p.$weight-bold;
+  line-height: p.$leading-tight;
+}
+
+@mixin heading-3 {
+  font-family: $font-sans;
+  font-size: p.$heading-lg;
+  font-weight: p.$weight-semibold;
+  line-height: p.$leading-snug;
+}
+
+@mixin heading-4 {
+  font-family: $font-sans;
+  font-size: p.$heading-md;
+  font-weight: p.$weight-semibold;
+  line-height: p.$leading-snug;
+}
+
+@mixin heading-5 {
+  font-family: $font-sans;
+  font-size: p.$heading-sm;
+  font-weight: p.$weight-semibold;
+  line-height: p.$leading-normal;
+}
+
+@mixin heading-6 {
+  font-family: $font-sans;
+  font-size: p.$heading-xs;
+  font-weight: p.$weight-semibold;
+  line-height: p.$leading-normal;
+}
+
+// Body text
+@mixin body-lg {
+  font-family: $font-sans;
+  font-size: p.$text-lg;
+  font-weight: p.$weight-regular;
+  line-height: p.$leading-relaxed;
+}
+
+@mixin body-base {
+  font-family: $font-sans;
+  font-size: p.$text-base;
+  font-weight: p.$weight-regular;
+  line-height: p.$leading-normal;
+}
+
+@mixin body-sm {
+  font-family: $font-sans;
+  font-size: p.$text-sm;
+  font-weight: p.$weight-regular;
+  line-height: p.$leading-normal;
+}
+
+@mixin body-xs {
+  font-family: $font-sans;
+  font-size: p.$text-xs;
+  font-weight: p.$weight-regular;
+  line-height: p.$leading-normal;
+}
+
+// Labels
+@mixin label-lg {
+  font-family: $font-sans;
+  font-size: p.$text-base;
+  font-weight: p.$weight-medium;
+  line-height: 1;
+}
+
+@mixin label-base {
+  font-family: $font-sans;
+  font-size: p.$text-sm;
+  font-weight: p.$weight-medium;
+  line-height: 1;
+}
+
+@mixin label-sm {
+  font-family: $font-sans;
+  font-size: p.$text-xs;
+  font-weight: p.$weight-medium;
+  line-height: 1;
+  letter-spacing: p.$tracking-wide;
+  text-transform: uppercase;
+}
+
+// Code
+@mixin code {
+  font-family: $font-mono;
+  font-size: p.$text-sm;
+  line-height: p.$leading-relaxed;
 }

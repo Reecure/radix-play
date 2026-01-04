@@ -27,7 +27,7 @@ const Sidebar: FC<Props> = ({ menu }) => {
                                     <span className={`${styles.activeRoute} ${isActive ? styles.show : ''}`}></span>
 
                                     <div className={`${styles.iconWrapper} ${isActive ? styles.activeColor : ''}`}>
-                                        <Icon icon={<item.icon/>} />
+                                        <Icon icon={item.icon} />
                                     </div>
 
                                     <span className={`${styles.label} ${isActive ? styles.activeColor : ''}`}>

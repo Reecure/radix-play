@@ -1,24 +1,240 @@
+// ============================================
+// NEUTRAL / GRAY SCALE
+// ============================================
+$neutral-0: #ffffff;
+$neutral-25: #fcfcfd;
+$neutral-50: #f9fafb;
+$neutral-100: #f3f4f6;
+$neutral-200: #e5e7eb;
+$neutral-300: #d1d5db;
+$neutral-400: #9ca3af;
+$neutral-500: #6b7280;
+$neutral-600: #4b5563;
+$neutral-700: #374151;
+$neutral-800: #1f2937;
+$neutral-850: #18202e;
+$neutral-900: #111827;
+$neutral-950: #0a0f1a;
+$neutral-1000: #030712;
+
+// ============================================
+// SUCCESS (Green)
+// ============================================
+$success-50: #f0fdf4;
+$success-100: #dcfce7;
+$success-200: #bbf7d0;
+$success-300: #86efac;
+$success-400: #4ade80;
+$success-500: #22c55e;
+$success-600: #16a34a;
+$success-700: #15803d;
+$success-800: #166534;
+$success-900: #14532d;
+
+// ============================================
+// WARNING (Amber/Yellow)
+// ============================================
+$warning-50: #fffbeb;
+$warning-100: #fef3c7;
+$warning-200: #fde68a;
+$warning-300: #fcd34d;
+$warning-400: #fbbf24;
+$warning-500: #f59e0b;
+$warning-600: #d97706;
+$warning-700: #b45309;
+$warning-800: #92400e;
+$warning-900: #78350f;
+
+// ============================================
+// DANGER / ERROR (Red)
+// ============================================
+$danger-50: #fef2f2;
+$danger-100: #fee2e2;
+$danger-200: #fecaca;
+$danger-300: #fca5a5;
+$danger-400: #f87171;
+$danger-500: #ef4444;
+$danger-600: #dc2626;
+$danger-700: #b91c1c;
+$danger-800: #991b1b;
+$danger-900: #7f1d1d;
+
+// ============================================
+// INFO (Blue)
+// ============================================
+$info-50: #eff6ff;
+$info-100: #dbeafe;
+$info-200: #bfdbfe;
+$info-300: #93c5fd;
+$info-400: #60a5fa;
+$info-500: #3b82f6;
+$info-600: #2563eb;
+$info-700: #1d4ed8;
+$info-800: #1e40af;
+$info-900: #1e3a8a;
+
+// ============================================
+// ALPHA COLORS (for overlays)
+// ============================================
+$white-a5: rgba(255, 255, 255, 0.05);
+$white-a10: rgba(255, 255, 255, 0.1);
+$white-a20: rgba(255, 255, 255, 0.2);
+$white-a30: rgba(255, 255, 255, 0.3);
+$white-a40: rgba(255, 255, 255, 0.4);
+$white-a50: rgba(255, 255, 255, 0.5);
+$white-a60: rgba(255, 255, 255, 0.6);
+$white-a70: rgba(255, 255, 255, 0.7);
+$white-a80: rgba(255, 255, 255, 0.8);
+
+$black-a5: rgba(0, 0, 0, 0.05);
+$black-a10: rgba(0, 0, 0, 0.1);
+$black-a20: rgba(0, 0, 0, 0.2);
+$black-a30: rgba(0, 0, 0, 0.3);
+$black-a40: rgba(0, 0, 0, 0.4);
+$black-a50: rgba(0, 0, 0, 0.5);
+$black-a60: rgba(0, 0, 0, 0.6);
+$black-a70: rgba(0, 0, 0, 0.7);
+$black-a80: rgba(0, 0, 0, 0.8);
+
+// ============================================
+// CSS CUSTOM PROPERTIES
+// ============================================
 :root {
-  /* Primitives */
-  --color-white: #ffffff;
-  --color-black: #000000;
+  // Base colors
+  --color-white: #{$neutral-0};
+  --color-black: #{$neutral-1000};
 
-  /* Semantic Defaults */
-  --color-success: #16a34a;
-  --color-warning: #f59e0b;
-  --color-danger:  #dc2626;
+  // Neutral scale
+  --color-neutral-0: #{$neutral-0};
+  --color-neutral-50: #{$neutral-50};
+  --color-neutral-100: #{$neutral-100};
+  --color-neutral-200: #{$neutral-200};
+  --color-neutral-300: #{$neutral-300};
+  --color-neutral-400: #{$neutral-400};
+  --color-neutral-500: #{$neutral-500};
+  --color-neutral-600: #{$neutral-600};
+  --color-neutral-700: #{$neutral-700};
+  --color-neutral-800: #{$neutral-800};
+  --color-neutral-900: #{$neutral-900};
+  --color-neutral-950: #{$neutral-950};
 
-  /* Default Brand (Blue) */
-  --color-brand-50:  #eef4ff;
+  // Default Brand (Blue) - overridden by [data-brand]
+  --color-brand-50: #eef4ff;
   --color-brand-100: #dbe8ff;
+  --color-brand-200: #c0d4fe;
+  --color-brand-300: #94b8fd;
+  --color-brand-400: #6090fa;
   --color-brand-500: #3b82f6;
   --color-brand-600: #2563eb;
   --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
 
-  --color-success-hover: #15803d;
-  --color-warning-hover: #b45309;
-  --color-danger-hover:  #b91c1c;
+  --color-brand-500-rgb: 59, 130, 246;
+  --color-brand-600-rgb: 37, 99, 235;
 
-  --color-success-subtle: #f0fdf4;
-  --color-danger-subtle: #fef2f2;
+  // Status colors
+  --color-success-50: #{$success-50};
+  --color-success-100: #{$success-100};
+  --color-success-500: #{$success-500};
+  --color-success-600: #{$success-600};
+  --color-success-700: #{$success-700};
+
+  --color-warning-50: #{$warning-50};
+  --color-warning-100: #{$warning-100};
+  --color-warning-500: #{$warning-500};
+  --color-warning-600: #{$warning-600};
+  --color-warning-700: #{$warning-700};
+
+  --color-danger-50: #{$danger-50};
+  --color-danger-100: #{$danger-100};
+  --color-danger-500: #{$danger-500};
+  --color-danger-600: #{$danger-600};
+  --color-danger-700: #{$danger-700};
+
+  --color-info-50: #{$info-50};
+  --color-info-100: #{$info-100};
+  --color-info-500: #{$info-500};
+  --color-info-600: #{$info-600};
+  --color-info-700: #{$info-700};
+
+  // Semantic shortcuts
+  --color-success: var(--color-success-600);
+  --color-success-hover: var(--color-success-700);
+  --color-success-subtle: var(--color-success-50);
+
+  --color-warning: var(--color-warning-500);
+  --color-warning-hover: var(--color-warning-700);
+  --color-warning-subtle: var(--color-warning-50);
+
+  --color-danger: var(--color-danger-600);
+  --color-danger-hover: var(--color-danger-700);
+  --color-danger-subtle: var(--color-danger-50);
+
+  --color-info: var(--color-info-500);
+  --color-info-hover: var(--color-info-700);
+  --color-info-subtle: var(--color-info-50);
+}
+
+// ============================================
+// BRAND OVERRIDES
+// ============================================
+[data-brand='twitch'] {
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #9146ff;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-brand-500-rgb: 145, 70, 255;
+  --color-brand-600-rgb: 124, 58, 237;
+}
+
+[data-brand='kick'] {
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-200: #a7f3d0;
+  --color-brand-300: #6ee7b7;
+  --color-brand-400: #34d399;
+  --color-brand-500: #53fc18;
+  --color-brand-600: #22c55e;
+  --color-brand-700: #16a34a;
+  --color-brand-800: #15803d;
+  --color-brand-900: #166534;
+  --color-brand-500-rgb: 83, 252, 24;
+  --color-brand-600-rgb: 34, 197, 94;
+}
+
+[data-brand='youtube'] {
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #ff0000;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+  --color-brand-800: #991b1b;
+  --color-brand-900: #7f1d1d;
+  --color-brand-500-rgb: 255, 0, 0;
+  --color-brand-600-rgb: 220, 38, 38;
+}
+
+[data-brand='discord'] {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #5865f2;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-500-rgb: 88, 101, 242;
+  --color-brand-600-rgb: 79, 70, 229;
 }

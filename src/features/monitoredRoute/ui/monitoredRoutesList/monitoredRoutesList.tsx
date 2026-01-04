@@ -1,14 +1,5 @@
 import {type FC, useState} from 'react';
 import styles from "./monitoredRoutesList.module.scss";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "../../../../shared/ui/table/Table";
-import DotsIcon from "../../../../shared/assets/icons/dots.svg?react";
-import {Icon} from "../../../../shared/ui/icon/icon";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger
-} from "../../../../shared/ui/dropdown/Dropdown";
 import {useMonitoredRoutes, useRouteMutations} from "../../model/useMonitoredRoutes";
 import type {MonitoredRoute} from "../../model/types";
 import {Button, Text} from "../../../../shared/ui";
@@ -24,15 +15,12 @@ interface Props {
     onEdit: (route: MonitoredRoute) => void;
 }
 
-const MonitoredRoutesList: FC<Props> = ({onEdit}) => {
+const MonitoredRoutesList: FC<Props> = () => {
     const [routeToDelete, setRouteToDelete] = useState<string | null>(null);
 
     const {data: monitoredRoutes, isLoading, isError} = useMonitoredRoutes();
     const {deleteMutation} = useRouteMutations();
 
-    const handleDeleteClick = (id: string) => {
-        setRouteToDelete(id);
-    };
 
     const confirmDelete = () => {
         if (routeToDelete) {
@@ -50,58 +38,6 @@ const MonitoredRoutesList: FC<Props> = ({onEdit}) => {
 
     return (
         <div className={styles.wrapper}>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Name</TableHead>
-                        <TableHead>Start</TableHead>
-                        <TableHead>Destination</TableHead>
-                        <TableHead style={{textAlign: "center"}}>Actions</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {monitoredRoutes.map((route) => (
-                        <TableRow key={route.id}>
-                            <TableCell>{route.isActive ? "Active" : "Not Active"}</TableCell>
-                            <TableCell>{route.name}</TableCell>
-                            <TableCell>{route.originLatitude} {route.originLongitude}</TableCell>
-                            <TableCell>{route.destinationLatitude} {route.destinationLongitude}</TableCell>
-                            <TableCell style={{textAlign: "center"}}>
-                                <div className={styles.actionsCell}>
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <button
-                                                className={styles.actionBtn}
-                                                type="button"
-                                            >
-                                                <Icon
-                                                    icon={<DotsIcon width="100%" height="100%"/>}
-                                                    size={24}
-                                                    viewBox="0 0 32 32"
-                                                />
-                                            </button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="glass">
-                                            <DropdownMenuItem onClick={() => onEdit(route)}>
-                                                Edit
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem
-                                                onClick={() => handleDeleteClick(route.id)}
-                                                disabled={deleteMutation.isPending}
-                                                style={{color: 'var(--color-danger, #ef4444)'}}
-                                            >
-                                                Delete
-                                            </DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </div>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-
             <Dialog
                 open={!!routeToDelete}
                 onOpenChange={(open) => !open && setRouteToDelete(null)}

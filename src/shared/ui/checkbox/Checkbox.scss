@@ -1,35 +1,53 @@
-.ui-checkbox {
-  --chk-bg: var(--bg-primary);
-  --chk-border: var(--border-default);
-  --chk-checked-bg: var(--accent-primary);
-  --chk-checked-text: var(--text-inverted, #fff);
-  --chk-focus: var(--accent-primary);
+@use '@/app/styles/tokens/primitives' as p;
 
-  all: unset;
+.ui-checkbox {
+  --chk-size: var(--space-9);
+  --chk-radius: #{p.rem(6px)};
+
+  --chk-bg: var(--input-bg);
+  --chk-border: var(--input-border);
+  --chk-fg: var(--text-inverse);
+
+  --chk-accent: var(--accent-primary);
+
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 6px;
-  border: 1px solid var(--chk-border);
+
+  width: var(--chk-size);
+  height: var(--chk-size);
+
   background-color: var(--chk-bg);
+  border: var(--border-1) solid var(--chk-border);
+  border-radius: var(--chk-radius);
+  color: transparent;
+
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--duration-fast) var(--ease-default);
+
+  &[data-state='checked'],
+  &[data-state='indeterminate'] {
+    background-color: var(--chk-accent);
+    border-color: var(--chk-accent);
+    color: var(--chk-fg);
+  }
 
   &:focus-visible {
-    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--chk-focus);
+    box-shadow: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--focus-ring-color);
   }
 
-  &[data-state='checked'] {
-    background-color: var(--chk-checked-bg);
-    border-color: var(--chk-checked-bg);
-    color: var(--chk-checked-text);
-  }
-
-  &:disabled {
+  &:disabled,
+  &[data-disabled] {
     cursor: not-allowed;
+    background-color: var(--input-bg-disabled);
+    border-color: var(--border-disabled);
     opacity: 0.5;
+    color: var(--text-disabled);
   }
 
   &__indicator {
@@ -38,15 +56,24 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+
+    &[data-state='checked'] {
+      animation: check-enter var(--duration-fast) var(--ease-bounce);
+    }
   }
 
   &__icon {
-    width: 14px;
-    height: 14px;
+    width: 70%;
+    height: 70%;
     fill: none;
     stroke: currentColor;
     stroke-width: 3;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
+}
+
+@keyframes check-enter {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

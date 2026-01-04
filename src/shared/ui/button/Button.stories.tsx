@@ -77,7 +77,11 @@ Supports polymorphic rendering via \`asChild\` prop using Radix Slot.
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+    args: {
+        asChild: false
+    }
+};
 
 export const Variants: Story = {
     render: () => (

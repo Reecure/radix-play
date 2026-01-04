@@ -10,9 +10,7 @@ const AppRouter = () => (
                 path={path}
                 element={(
                     <Suspense fallback={<div>Loading...</div>}>
-                        <div style={{ height: '100%', width: '100%' }}>
-                            {element}
-                        </div>
+                        {element}
                     </Suspense>
                 )}
             />

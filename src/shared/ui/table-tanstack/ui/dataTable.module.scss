@@ -1,0 +1,280 @@
+.wrapper {
+  --table-border-color: var(--border-default);
+  --table-header-bg: var(--bg-surface);
+  --table-row-hover: var(--bg-hover);
+  --table-row-selected: var(--bg-active);
+  --text-color: var(--text-primary);
+
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tableContainer  {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.table {
+  width: 100%;
+  position: relative;
+  min-width: max-content;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--table-header-bg);
+}
+
+.headerRow {
+  height: 48px;
+}
+
+.headerCell {
+  position: relative;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 12px 16px;
+  background: var(--table-bg);
+  border-bottom: 1px solid var(--table-border-color);
+  vertical-align: middle;
+
+  &.stickyLeft {
+    position: sticky;
+    left: 0;
+    z-index: 11;
+  }
+
+  &.stickyRight {
+    position: sticky;
+    right: 0;
+    z-index: 11;
+  }
+}
+
+.headerCellContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+// Фіксовані колонки
+.columnFixed {
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  padding: 4px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.body {
+
+}
+
+.row {
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--table-row-hover);
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.selected {
+    background: var(--table-row-selected);
+  }
+
+  &.expanded {
+    background: var(--table-row-selected);
+  }
+}
+
+.subRow {
+  background: rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.row[data-depth="1"] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.row[data-depth="2"] {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.row[data-depth="3"] {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.cell {
+  padding: 12px 16px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+// Expanded content
+.expandedContentRow {
+  background: transparent;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.expandedContentCell {
+  padding: 0;
+  border: none;
+}
+
+.expandedContent {
+  padding: 16px;
+  margin: 8px 16px;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+// Skeleton
+.skeleton {
+  height: 20px;
+  background: linear-gradient(
+                  90deg,
+                  var(--bg-hover) 25%,
+                  var(--bg-surface) 50%,
+                  var(--bg-hover) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// Empty
+.emptyCell {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+// Resizer
+.resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: 1px;
+    width: 2px;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  &:hover::after,
+  &.isResizing::after {
+    opacity: 1;
+  }
+
+  &.isResizing::after {
+    background: var(--color-primary, #3b82f6);
+  }
+}
+
+// Spacer row для gap між header і body
+.spacerRow {
+  height: var(--header-body-gap, 0);
+
+  td {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--table-border-color);
+  background: var(--table-header-bg);
+  flex-shrink: 0;
+}
+
+.paginationButtons {
+  display: flex;
+  gap: 4px;
+
+  button {
+    padding: 6px 12px;
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    background: var(--bg-surface);
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover:not(:disabled) {
+      background: var(--bg-hover);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.paginationInfo {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.pageSizeSelect {
+  padding: 6px 12px;
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  font-size: 14px;
+  margin-left: auto;
+}

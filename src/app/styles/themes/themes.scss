@@ -1,0 +1,220 @@
+@use '../tokens/colors' as c;
+
+:root,
+[data-theme='light'] {
+  // === BACKGROUNDS ===
+  --bg-root: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --bg-app: #{c.$neutral-50};
+  --bg-surface: #{c.$neutral-0};
+  --bg-subtle: #{c.$neutral-50};
+  --bg-muted: #{c.$neutral-100};
+  --bg-emphasis: #{c.$neutral-200};
+
+  // Interactive backgrounds
+  --bg-hover: #{c.$neutral-100};
+  --bg-active: #{c.$neutral-200};
+  --bg-selected: var(--color-brand-50);
+  --bg-disabled: #{c.$neutral-100};
+
+  // Overlay
+  --bg-overlay: #{c.$black-a50};
+  --bg-backdrop: #{c.$black-a30};
+
+  // === TEXT ===
+  --text-primary: #{c.$neutral-900};
+  --text-secondary: #{c.$neutral-600};
+  --text-tertiary: #{c.$neutral-500};
+  --text-muted: #{c.$neutral-400};
+  --text-disabled: #{c.$neutral-300};
+  --text-inverse: #{c.$neutral-0};
+  --text-on-brand: #{c.$neutral-0};
+
+  // === BORDERS ===
+  --border-default: #{c.$neutral-200};
+  --border-muted: #{c.$neutral-100};
+  --border-emphasis: #{c.$neutral-300};
+  --border-strong: #{c.$neutral-400};
+  --border-disabled: #{c.$neutral-200};
+
+  // Interactive borders
+  --border-hover: #{c.$neutral-400};
+  --border-focus: var(--color-brand-500);
+  --border-active: var(--color-brand-600);
+
+  // === ACCENTS (brand-aware) ===
+  --accent-subtle: var(--color-brand-50);
+  --accent-muted: var(--color-brand-100);
+  --accent-primary: var(--color-brand-600);
+  --accent-hover: var(--color-brand-700);
+  --accent-text: var(--color-brand-700);
+
+  // === GLASS EFFECT ===
+  --glass-surface: rgba(255, 255, 255, 0.75);
+  --glass-border: 1px solid #{c.$neutral-200};
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+
+  // === FOCUS RING ===
+  --focus-ring-color: var(--color-brand-500);
+  --focus-ring: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--focus-ring-color);
+
+  // === INPUT SPECIFIC ===
+  --input-bg: #{c.$neutral-0};
+  --input-bg-disabled: #{c.$neutral-100};
+  --input-border: #{c.$neutral-300};
+  --input-border-hover: #{c.$neutral-400};
+  --input-border-focus: var(--color-brand-500);
+  --input-placeholder: #{c.$neutral-400};
+
+  // === STATUS BACKGROUNDS ===
+  --status-success-bg: var(--color-success-50);
+  --status-success-border: var(--color-success-200);
+  --status-success-text: var(--color-success-700);
+
+  --status-warning-bg: var(--color-warning-50);
+  --status-warning-border: var(--color-warning-200);
+  --status-warning-text: var(--color-warning-700);
+
+  --status-danger-bg: var(--color-danger-50);
+  --status-danger-border: var(--color-danger-200);
+  --status-danger-text: var(--color-danger-700);
+
+  --status-info-bg: var(--color-info-50);
+  --status-info-border: var(--color-info-200);
+  --status-info-text: var(--color-info-700);
+}
+
+// ============================================
+// DARK THEME
+// ============================================
+[data-theme='dark'] {
+  --bg-root: radial-gradient(1000px 800px at 80% 10%, rgba(var(--color-brand-500-rgb), 0.08), transparent 50%),
+  radial-gradient(1200px 1000px at 10% 90%, rgba(168, 85, 247, 0.1), transparent 55%),
+  linear-gradient(180deg, #{c.$neutral-900} 0%, #{c.$neutral-950} 100%);
+  --bg-app: #{c.$neutral-950};
+  --bg-surface: #{c.$neutral-900};
+  --bg-subtle: #{c.$neutral-850};
+  --bg-muted: #{c.$neutral-800};
+  --bg-emphasis: #{c.$neutral-700};
+
+  // Interactive backgrounds
+  --bg-hover: #{c.$neutral-800};
+  --bg-active: #{c.$neutral-700};
+  --bg-selected: rgba(var(--color-brand-500-rgb), 0.15);
+  --bg-disabled: #{c.$neutral-850};
+
+  // Overlay
+  --bg-overlay: #{c.$black-a70};
+  --bg-backdrop: #{c.$black-a60};
+
+  // === TEXT ===
+  --text-primary: #{c.$neutral-50};
+  --text-secondary: #{c.$neutral-400};
+  --text-tertiary: #{c.$neutral-500};
+  --text-muted: #{c.$neutral-500};
+  --text-disabled: #{c.$neutral-600};
+  --text-inverse: #{c.$neutral-900};
+  --text-on-brand: #{c.$neutral-0};
+
+  // === BORDERS ===
+  --border-default: #{c.$neutral-700};
+  --border-muted: #{c.$neutral-800};
+  --border-emphasis: #{c.$neutral-600};
+  --border-strong: #{c.$neutral-500};
+  --border-disabled: #{c.$neutral-800};
+
+  // Interactive borders
+  --border-hover: #{c.$neutral-500};
+  --border-focus: var(--color-brand-400);
+  --border-active: var(--color-brand-300);
+
+  // === ACCENTS (brighter for dark mode) ===
+  --accent-subtle: rgba(var(--color-brand-500-rgb), 0.1);
+  --accent-muted: rgba(var(--color-brand-500-rgb), 0.2);
+  --accent-primary: var(--color-brand-500);
+  --accent-hover: var(--color-brand-400);
+  --accent-text: var(--color-brand-400);
+
+  // === GLASS EFFECT ===
+  --glass-surface: linear-gradient(135deg, #{c.$white-a10} 0%, #{c.$white-a5} 100%);
+  --glass-border: 1px solid #{c.$white-a10};
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+
+  // === FOCUS RING ===
+  --focus-ring-color: var(--color-brand-400);
+  --focus-ring: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--focus-ring-color);
+
+  // === INPUT SPECIFIC ===
+  --input-bg: #{c.$neutral-800};
+  --input-bg-disabled: #{c.$neutral-850};
+  --input-border: #{c.$neutral-600};
+  --input-border-hover: #{c.$neutral-500};
+  --input-border-focus: var(--color-brand-400);
+  --input-placeholder: #{c.$neutral-500};
+
+  // === STATUS BACKGROUNDS (darker variants) ===
+  --status-success-bg: rgba(#{c.$success-500}, 0.1);
+  --status-success-border: rgba(#{c.$success-500}, 0.3);
+  --status-success-text: var(--color-success-500);
+
+  --status-warning-bg: rgba(#{c.$warning-500}, 0.1);
+  --status-warning-border: rgba(#{c.$warning-500}, 0.3);
+  --status-warning-text: var(--color-warning-500);
+
+  --status-danger-bg: rgba(#{c.$danger-500}, 0.1);
+  --status-danger-border: rgba(#{c.$danger-500}, 0.3);
+  --status-danger-text: var(--color-danger-500);
+
+  --status-info-bg: rgba(#{c.$info-500}, 0.1);
+  --status-info-border: rgba(#{c.$info-500}, 0.3);
+  --status-info-text: var(--color-info-500);
+}
+
+// ============================================
+// SYSTEM PREFERENCE (auto theme)
+// ============================================
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-root: radial-gradient(1000px 800px at 80% 10%, rgba(var(--color-brand-500-rgb), 0.08), transparent 50%),
+    radial-gradient(1200px 1000px at 10% 90%, rgba(168, 85, 247, 0.1), transparent 55%),
+    linear-gradient(180deg, #{c.$neutral-900} 0%, #{c.$neutral-950} 100%);
+    --bg-app: #{c.$neutral-950};
+    --bg-surface: #{c.$neutral-900};
+    --bg-subtle: #{c.$neutral-850};
+    --bg-muted: #{c.$neutral-800};
+    --bg-emphasis: #{c.$neutral-700};
+    --bg-hover: #{c.$neutral-800};
+    --bg-active: #{c.$neutral-700};
+    --bg-selected: rgba(var(--color-brand-500-rgb), 0.15);
+    --bg-disabled: #{c.$neutral-850};
+    --bg-overlay: #{c.$black-a70};
+    --bg-backdrop: #{c.$black-a60};
+    --text-primary: #{c.$neutral-50};
+    --text-secondary: #{c.$neutral-400};
+    --text-tertiary: #{c.$neutral-500};
+    --text-muted: #{c.$neutral-500};
+    --text-disabled: #{c.$neutral-600};
+    --text-inverse: #{c.$neutral-900};
+    --border-default: #{c.$neutral-700};
+    --border-muted: #{c.$neutral-800};
+    --border-emphasis: #{c.$neutral-600};
+    --border-strong: #{c.$neutral-500};
+    --border-disabled: #{c.$neutral-800};
+    --border-hover: #{c.$neutral-500};
+    --border-focus: var(--color-brand-400);
+    --accent-subtle: rgba(var(--color-brand-500-rgb), 0.1);
+    --accent-muted: rgba(var(--color-brand-500-rgb), 0.2);
+    --accent-primary: var(--color-brand-500);
+    --accent-hover: var(--color-brand-400);
+    --accent-text: var(--color-brand-400);
+    --glass-surface: linear-gradient(135deg, #{c.$white-a10} 0%, #{c.$white-a5} 100%);
+    --glass-border: 1px solid #{c.$white-a10};
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    --focus-ring-color: var(--color-brand-400);
+    --input-bg: #{c.$neutral-800};
+    --input-bg-disabled: #{c.$neutral-850};
+    --input-border: #{c.$neutral-600};
+    --input-border-hover: #{c.$neutral-500};
+    --input-border-focus: var(--color-brand-400);
+    --input-placeholder: #{c.$neutral-500};
+  }
+}

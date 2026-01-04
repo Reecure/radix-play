@@ -127,7 +127,7 @@ const MonitoredRoutesForm: FC<Props> = ({ open, onOpenChange, initialData }) => 
                                 <>
                                     <Checkbox
                                         checked={value}
-                                        onChange={() => onChange(!value)}
+                                        onCheckedChange={(checked) => onChange(!!checked)}
                                         ref={ref}
                                     />
                                     <Label
