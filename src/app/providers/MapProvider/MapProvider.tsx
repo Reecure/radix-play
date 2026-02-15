@@ -25,6 +25,8 @@ export function MapProvider({
     const mapRef = useRef<maplibregl.Map | null>(null);
     const styleRef = useRef(style);
 
+    const [pendingStyle, setPendingStyle] = useState<typeof style | null>(null);
+
     const [contextValue, setContextValue] = useState<MapContextValue>({
         map: null,
         isLoaded: false,
@@ -33,7 +35,6 @@ export function MapProvider({
 
     useEffect(() => {
         if (!containerRef.current) return;
-
         if (mapRef.current) return;
 
         const map = new maplibregl.Map({
@@ -74,20 +75,32 @@ export function MapProvider({
     useEffect(() => {
         const map = mapRef.current;
         if (!map || !contextValue.isLoaded) return;
-
         if (styleRef.current === style) return;
-        styleRef.current = style;
+
+        setContextValue(prev => ({ ...prev, isStyleLoaded: false }));
+        setPendingStyle(style);
+    }, [style, contextValue.isLoaded]);
+
+    useEffect(() => {
+        const map = mapRef.current;
+        if (!map || !pendingStyle || contextValue.isStyleLoaded) return;
+
+        styleRef.current = pendingStyle;
+        const newStyle = pendingStyle;
+        setPendingStyle(null);
 
         const handleStyleLoad = () => {
-            setContextValue(prev => ({
-                ...prev,
-                isStyleLoaded: true,
-            }));
+            setContextValue(prev => ({ ...prev, isStyleLoaded: true }));
         };
 
         map.once('style.load', handleStyleLoad);
-        map.setStyle(style);
-    }, [style, contextValue.isLoaded]);
+        map.setStyle(newStyle);
+
+        if (map.isStyleLoaded()) {
+            map.off('style.load', handleStyleLoad);
+            handleStyleLoad();
+        }
+    }, [pendingStyle, contextValue.isStyleLoaded]);
 
     return (
         <MapContext.Provider value={contextValue}>

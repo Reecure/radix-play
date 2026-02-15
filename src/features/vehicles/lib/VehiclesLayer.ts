@@ -86,7 +86,7 @@ export class VehiclesLayer {
                     'icon-rotate': ['get', 'heading'],
                     'icon-allow-overlap': true,
                     'icon-ignore-placement': true,
-                    'icon-size': 0.8
+                    'icon-size': 1.2
                 }
             });
         }

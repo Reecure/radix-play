@@ -17,15 +17,13 @@ const queryClient = new QueryClient({
 })
 
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
-                <ErrorBoundary>
-                    <ThemeProvider>
-                        <App/>
-                    </ThemeProvider>
-                </ErrorBoundary>
-            </BrowserRouter>
-        </QueryClientProvider>
-    </StrictMode>,
+    <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App/>
+                </ThemeProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
+    </QueryClientProvider>,
 )

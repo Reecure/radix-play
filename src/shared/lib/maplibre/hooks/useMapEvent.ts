@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import type { MapLayerEventType } from 'maplibre-gl';
+import type {MapEventType, MapLayerEventType} from 'maplibre-gl';
 import { useMapContext } from './useMap';
 
 export function useMapEvent<T extends keyof MapEventType>(

@@ -1,11 +1,14 @@
 import './mapPage.scss';
 import {MapWidget} from "../../widgets/map/ui/mapWidget.tsx";
-import {VehiclesLayerManager} from "@/features/vehicles/ui/VehiclesLayerManager.tsx";
+import IntersectionLayer from "@/features/traffic/IntersectionLayer.tsx";
+import IntersectionConnectionLayer from "@/features/traffic/IntersectionConnectionsLayer.tsx";
 
 const Map = () => {
     return <div className="map-page">
         <MapWidget className={"map"}>
-            <VehiclesLayerManager />
+            {/*<CamerasLayer/>*/}
+            <IntersectionConnectionLayer />
+            <IntersectionLayer/>
         </MapWidget>
     </div>
 }

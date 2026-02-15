@@ -1,7 +1,4 @@
-import EmploeeTable from "@/features/empoloeeTable/ui/emploeeTable.tsx";
-
 const MainPage = () => {
-
     return (
         <div style={{
             display: 'flex',
@@ -10,7 +7,6 @@ const MainPage = () => {
             minHeight: 0,
             overflow: 'hidden'
         }}>
-            <EmploeeTable />
         </div>
     )
 };

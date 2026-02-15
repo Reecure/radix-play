@@ -3,15 +3,11 @@ import { useMapContext } from './useMap';
 import type { MapReadyCallback } from '../types';
 
 export function useMapReady(callback: MapReadyCallback) {
-    const { map, isLoaded } = useMapContext();
+    const { map, isStyleLoaded } = useMapContext();
     const cleanupRef = useRef<(() => void) | null>(null);
-    const initializedRef = useRef(false);
 
     useEffect(() => {
-        if (!map || !isLoaded) return;
-
-        if (initializedRef.current) return;
-        initializedRef.current = true;
+        if (!map || !isStyleLoaded) return;
 
         const cleanup = callback(map);
         cleanupRef.current = cleanup ?? null;
@@ -21,7 +17,6 @@ export function useMapReady(callback: MapReadyCallback) {
                 cleanupRef.current();
                 cleanupRef.current = null;
             }
-            initializedRef.current = false;
         };
-    }, [map, isLoaded, callback]);
+    }, [map, isStyleLoaded, callback]);
 }
